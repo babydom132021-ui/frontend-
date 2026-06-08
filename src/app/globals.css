@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafaf9; /* Warm stone background */
+  --foreground: #1c1917; /* Dark stone/warm black text */
+  --primary: #854d0e; /* Luxury deep gold/brass */
+  --primary-light: #fef08a;
+  --accent: #1c1917;
+  --card-bg: #ffffff;
+}
+
+@theme {
+  --color-stone-gold: #854d0e;
+  --color-stone-gold-light: #ca8a04;
+  --color-warm-black: #1c1917;
+  --color-warm-cream: #fafaf9;
+  --color-soft-gray: #f5f5f4;
+  
+  --animate-fade-in: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-slide-up: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-slide-down: slide-down 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-drawer-in: drawer-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes slide-down {
+    from { transform: translateY(-10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes drawer-in {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-dark {
+  background: rgba(28, 25, 23, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Smooth hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Luxury card shadow transition */
+.luxury-shadow-hover {
+  box-shadow: 0 4px 20px -2px rgba(28, 25, 23, 0.05);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-shadow-hover:hover {
+  box-shadow: 0 20px 40px -4px rgba(28, 25, 23, 0.1);
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Custom fine scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fafaf9;
+}
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a29e;
+}
+
+/* ── Khmer Font ─────────────────────────────────────────────────── */
+/*
+  When the LanguageProvider wrapper has .lang-kh, override all text
+  with Noto Sans Khmer — a Unicode-compliant font built for Khmer script.
+  We also increase line-height because Khmer stacked subscripts need
+  more vertical room than Latin letters.
+*/
+.lang-kh,
+.lang-kh * {
+  font-family: var(--font-khmer), "Kantumruy Pro", sans-serif !important;
+  line-height: 1.85 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Keep mono elements readable */
+.lang-kh code,
+.lang-kh pre,
+.lang-kh kbd {
+  font-family: var(--font-geist-mono), monospace !important;
+  line-height: 1.5 !important;
+}
+
+/* Slightly larger base size in Khmer for readability */
+.lang-kh body,
+.lang-kh p,
+.lang-kh span,
+.lang-kh a,
+.lang-kh button,
+.lang-kh input,
+.lang-kh select,
+.lang-kh textarea,
+.lang-kh label {
+  font-size-adjust: 0.55;
+}
