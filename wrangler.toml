@@ -4,3 +4,7 @@ compatibility_flags = ["nodejs_compat"]
 
 [assets]
 directory = ".vercel/output/static"
+
+[[services]]
+binding = "WORKER_SELF_REFERENCE"
+service = "frontend"
