@@ -310,7 +310,7 @@ export default function CartDrawer({
                           <Mail size={11} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
                           <input
                             type="email"
-                            placeholder={t("email")}
+                            placeholder={t("checkout_email")}
                             value={form.email}
                             onChange={(e) => setField("email", e.target.value)}
                             className={`${inputClass("email")} pl-7`}
